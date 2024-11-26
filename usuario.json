@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "senha": "admin",
+        "isAdmin": true,
+        "nome": "Administrador"
+    },
+    {
+        "id": 2,
+        "username": "sarahalmeida",
+        "senha": "senha123",
+        "isAdmin": false,
+        "nome": "Sarah Almeida"
+    },
+    {
+        "id": 3,
+        "username": "Kell",
+        "senha": "pass452",
+        "isAdmin": false,
+        "name": "Kell"
+    }
+]
