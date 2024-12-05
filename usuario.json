@@ -2,6 +2,7 @@
     {
         "id": 1,
         "username": "admin",
+        "email": "admin@estacionamento.com",
         "senha": "admin",
         "isAdmin": true,
         "nome": "Administrador"
@@ -9,6 +10,7 @@
     {
         "id": 2,
         "username": "sarahalmeida",
+        "email": "sarah@estacionamento.com",
         "senha": "senha123",
         "isAdmin": false,
         "nome": "Sarah Almeida"
@@ -16,6 +18,7 @@
     {
         "id": 3,
         "username": "Kell",
+        "email":"kel@estacionamento.com",
         "senha": "pass452",
         "isAdmin": false,
         "name": "Kell"
