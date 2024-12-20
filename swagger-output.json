@@ -1,0 +1,247 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Estacionamento",
+    "description": "Controle de entrada de carro e moto, definicao de prioridade entre os veiculos"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Login",
+      "description": "entrada do uuario"
+    },
+    {
+      "name": "nome",
+      "description": "entrada do nome do dono do veiculo"
+    },
+    {
+      "name": "marca",
+      "description": "Rotas relativas para marca dos veiculos"
+    },
+    {
+      "name": "placa",
+      "description": "Rotas relativas para a placa do veiculo"
+    },
+    {
+      "name": "email",
+      "description": "Rotas relativas para o email do dono"
+    },
+    {
+      "name": "Telefone",
+      "description": "Rotas relativas para telefone do dono"
+    }
+  ],
+  "paths": {
+    "/install": {
+      "get": {
+        "description": "",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "integer"
+              },
+              "description": {
+                "type": "string",
+                "example": "ID do usuário"
+              }
+            }
+          },
+          "usuario": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "Nome de usuário"
+              },
+              "minLength": {
+                "type": "number",
+                "example": 3
+              },
+              "maxLength": {
+                "type": "number",
+                "example": 30
+              }
+            }
+          },
+          "nome": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "Nome completo do usuário"
+              },
+              "minLength": {
+                "type": "number",
+                "example": 3
+              },
+              "maxLength": {
+                "type": "number",
+                "example": 50
+              }
+            }
+          },
+          "password": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "Senha do usuário"
+              },
+              "minLength": {
+                "type": "number",
+                "example": 6
+              }
+            }
+          },
+          "isAdmin": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "boolean"
+              },
+              "description": {
+                "type": "string",
+                "example": "Indica se o usuário é administrador"
+              }
+            }
+          }
+        }
+      },
+      "Dados": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "Nome do dono do veiculo"
+              },
+              "minLength": {
+                "type": "number",
+                "example": 3
+              },
+              "maxLength": {
+                "type": "number",
+                "example": 30
+              }
+            }
+          },
+          "marca": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "marca do veiculo"
+              },
+              "minLength": {
+                "type": "number",
+                "example": 3
+              },
+              "maxLength": {
+                "type": "number",
+                "example": 30
+              }
+            }
+          },
+          "placa": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "integer"
+              },
+              "description": {
+                "type": "string",
+                "example": "placa do veiculo"
+              }
+            }
+          },
+          "email": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "Email do contato"
+              },
+              "format": {
+                "type": "string",
+                "example": "email"
+              }
+            }
+          },
+          "telefone": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "description": {
+                "type": "string",
+                "example": "Número de telefone do contato"
+              },
+              "pattern": {
+                "type": "string",
+                "example": "^[0-9]{10,15}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Autenticação por token Bearer"
+      }
+    }
+  }
+}

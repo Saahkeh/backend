@@ -1,21 +1,28 @@
 require('dotenv').config();
 
-const app = express();
-
 const swaggerUi = require('swagger-ui-express');
-const swaggerFile = require('./swagger-output.json');
+const swaggerFile = require('./swagger-output.json')
 
 const express = require('express');
+const app = express();
+
 const bodyParser = require('body-parser');
 
-
-const { authRoutes, usuarioRoutes, dadosRoutes } = require('./routes')
+const authRoutes = require('./routes/authRoutes');
 
 app.use(bodyParser.json());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
+
+const veiculoRoutes = require('./routes/veiculoRoutes');  // caminho
+
+app.use(express.json());
 app.use(authRoutes);
-app.use('/usuario', usuarioRoutes);
+app.use('/veiculo', veiculoRoutes);
+
+app.get('/', (req, res) => {
+    res.send('Bem vindo ao nosso estacionamento');
+  });
 
 app.get('/install', (req, res) => {
    // vai verificar se o administrador ja existe
@@ -34,7 +41,13 @@ app.get('/install', (req, res) => {
       role:"admin"
    }
 })
-app.use('/dados', dadosRoutes);
+app.use('/auth', authRoutes);
+
+/*teste da paginacao de carros
+get/api/carro?page=1&limit=5;*/
+
+/*teste da paginacao de motos
+get/api/moto?page=1&limit=5;*/
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
